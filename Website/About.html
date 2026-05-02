@@ -23,6 +23,14 @@ nav.scrolled{height:60px;box-shadow:0 2px 30px rgba(0,0,0,0.3);}
 .nav-links a.active{color:var(--gold);}
 .nav-cta{position:absolute;right:60px;background:var(--charcoal);color:var(--ivory);padding:9px 24px;font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-family:'Jost',sans-serif;transition:background 0.3s;}
 .nav-cta:hover{background:var(--gold);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;position:absolute;right:20px;padding:8px;z-index:1001;}
+.hamburger span{display:block;width:24px;height:1.5px;background:var(--ivory);transition:all 0.3s;}
+.nav-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:1400;opacity:0;pointer-events:none;transition:opacity 0.3s;}
+.nav-overlay.open{opacity:1;pointer-events:all;}
+.mobile-nav{position:fixed;top:0;right:0;bottom:0;width:260px;background:#1c1a17;z-index:1500;padding:80px 36px 40px;transform:translateX(100%);transition:transform 0.4s ease;display:flex;flex-direction:column;gap:18px;box-shadow:-10px 0 40px rgba(0,0,0,0.4);}
+.mobile-nav.open{transform:translateX(0);}
+.mobile-nav a{font-family:'Cinzel',serif;font-size:0.88rem;letter-spacing:0.1em;color:rgba(245,240,232,0.7);text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(184,151,90,0.15);transition:color 0.3s;}
+.mobile-nav a:hover,.mobile-nav a.active{color:var(--gold);}
 
 /* PAGE WRAPPER */
 .page{padding-top:72px;}
@@ -31,8 +39,8 @@ nav.scrolled{height:60px;box-shadow:0 2px 30px rgba(0,0,0,0.3);}
 .story-section{padding:90px 80px 80px;max-width:860px;}
 .section-label{font-size:0.65rem;letter-spacing:0.42em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:block;}
 .story-heading{font-family:'Cinzel',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:400;color:var(--ivory);line-height:1.15;margin-bottom:32px;}
-.story-body{font-family:'Cormorant Garamond',serif;font-size:1.18rem;line-height:2.05;color:rgba(245,240,232,0.68);margin-bottom:26px;}
-.story-body:first-of-type{font-size:1.32rem;color:rgba(245,240,232,0.85);}
+.story-body{font-family:'Cormorant Garamond',serif;font-size:1.18rem;line-height:2.05;color:rgba(245,240,232,0.88);margin-bottom:26px;}
+.story-body:first-of-type{font-size:1.32rem;color:rgba(245,240,232,0.95);}
 .story-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.4rem,2.5vw,2rem);color:var(--gold-light);margin:52px 0;line-height:1.5;border-left:2px solid var(--gold);padding-left:32px;}
 
 /* DIVIDER */
@@ -43,7 +51,7 @@ nav.scrolled{height:60px;box-shadow:0 2px 30px rgba(0,0,0,0.3);}
 
 /* LEGACY SECTION */
 .legacy-section{padding:80px 80px 90px;background:rgba(184,151,90,0.03);}
-.legacy-intro{font-family:'Cormorant Garamond',serif;font-size:1.18rem;line-height:1.95;color:rgba(245,240,232,0.65);max-width:680px;margin-bottom:64px;}
+.legacy-intro{font-family:'Cormorant Garamond',serif;font-size:1.18rem;line-height:1.95;color:rgba(245,240,232,0.82);max-width:680px;margin-bottom:64px;}
 .legacy-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-bottom:2px;}
 .legacy-card{padding:32px 30px;border:1px solid rgba(184,151,90,0.1);background:rgba(255,255,255,0.01);transition:all 0.4s;position:relative;overflow:hidden;}
 .legacy-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--gold),transparent);transform:scaleY(0);transform-origin:top;transition:transform 0.5s ease;}
@@ -52,19 +60,19 @@ nav.scrolled{height:60px;box-shadow:0 2px 30px rgba(0,0,0,0.3);}
 .legacy-num{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.35em;color:rgba(184,151,90,0.5);margin-bottom:12px;display:block;}
 .legacy-icon{font-size:1.3rem;color:var(--gold);margin-bottom:10px;display:block;}
 .legacy-title{font-family:'Cinzel',serif;font-size:0.85rem;color:var(--ivory);margin-bottom:8px;letter-spacing:0.08em;}
-.legacy-text{font-size:0.8rem;color:rgba(245,240,232,0.48);line-height:1.75;}
+.legacy-text{font-size:0.8rem;color:rgba(245,240,232,0.7);line-height:1.75;}
 .legacy-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:2px;}
 .legacy-stat{padding:44px 40px;background:rgba(255,255,255,0.02);border:1px solid rgba(184,151,90,0.08);text-align:center;transition:background 0.3s;}
 .legacy-stat:hover{background:rgba(184,151,90,0.05);}
 .stat-num{font-family:'Cinzel',serif;font-size:2.2rem;color:var(--gold);display:block;line-height:1;margin-bottom:10px;}
-.stat-label{font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(245,240,232,0.3);}
+.stat-label{font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(245,240,232,0.55);}
 
 /* CTA SECTION */
 .cta-section{padding:90px 80px;text-align:center;border-top:1px solid rgba(184,151,90,0.12);position:relative;overflow:hidden;}
 .cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(184,151,90,0.07) 0%,transparent 65%);}
 .cta-eyebrow{font-size:0.65rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:block;}
 .cta-heading{font-family:'Cinzel',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:400;color:var(--ivory);margin-bottom:16px;}
-.cta-sub{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(245,240,232,0.5);margin-bottom:44px;line-height:1.8;}
+.cta-sub{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(245,240,232,0.72);margin-bottom:44px;line-height:1.8;}
 .btn-cta{display:inline-block;background:var(--gold);color:var(--ivory);padding:16px 52px;font-family:'Jost',sans-serif;font-size:0.75rem;letter-spacing:0.28em;text-transform:uppercase;text-decoration:none;transition:all 0.3s;}
 .btn-cta:hover{background:var(--gold-light);}
 
@@ -90,6 +98,14 @@ nav.scrolled{height:60px;box-shadow:0 2px 30px rgba(0,0,0,0.3);}
   .legacy-stat{padding:28px 24px;}
   .page-footer{padding:24px;flex-direction:column;gap:12px;text-align:center;}
 }
+
+.nav-dropdown{position:relative;}
+.nav-dropdown-menu{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:rgba(250,247,242,0.98);border:1px solid rgba(184,151,90,0.2);box-shadow:0 8px 40px rgba(0,0,0,0.12);min-width:220px;opacity:0;pointer-events:none;transition:all 0.25s ease;transform:translateX(-50%) translateY(-6px);z-index:100;}
+.nav-dropdown:hover .nav-dropdown-menu{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0);}
+.nav-dropdown-menu a{display:block;padding:10px 20px;font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:all 0.2s;border-bottom:1px solid rgba(184,151,90,0.08);}
+.nav-dropdown-menu a:last-child{border-bottom:none;}
+.nav-dropdown-menu a:hover{color:var(--gold);background:rgba(184,151,90,0.05);padding-left:26px;}
+.nav-dropdown > a::after{content:" \25BE";font-size:0.6rem;vertical-align:middle;margin-left:4px;}
 </style>
 </head>
 <body>
@@ -98,13 +114,43 @@ nav.scrolled{height:60px;box-shadow:0 2px 30px rgba(0,0,0,0.3);}
   <a href="index.html" class="nav-logo">D.K. <span>Stone</span> Crafts</a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
-    <li><a href="index.html#what-we-do">What We Do</a></li>
-    <li><a href="index.html#consultant">Consulting</a></li>
-    <li><a href="index.html#process">Our Process</a></li>
+    <li class="nav-dropdown"><a href="index.html#what-we-do">What We Do</a>
+      <div class="nav-dropdown-menu">
+        <a href="temples.html">Temples &amp; Shrines</a>
+        <a href="jaali.html">Jaali &amp; Screens</a>
+        <a href="tiles.html">Marble Tiles &amp; Flooring</a>
+        <a href="sculptures.html">Sculptures &amp; Statues</a>
+        <a href="pillars.html">Pillars &amp; Architecture</a>
+        <a href="bespoke.html">Custom &amp; Bespoke</a>
+        <a href="inlay.html">Inlay &amp; Pietra Dura</a>
+        <a href="fountains.html">Fountains</a>
+        <a href="home-interiors.html">Home Interiors</a>
+      </div>
+    </li>
+    <li><a href="consultant.html">Consulting</a></li>
     <li><a href="about.html" class="active">About Us</a></li>
   </ul>
   <a href="index.html#contact" class="nav-cta">Get in Touch</a>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
+
+<div class="nav-overlay" id="navOverlay"></div>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="index.html#what-we-do">What We Do</a>
+  <a href="temples.html">&#x2014; Temples &amp; Shrines</a>
+  <a href="jaali.html">&#x2014; Jaali &amp; Screens</a>
+  <a href="tiles.html">&#x2014; Marble Tiles</a>
+  <a href="sculptures.html">&#x2014; Sculptures</a>
+  <a href="pillars.html">&#x2014; Pillars</a>
+  <a href="bespoke.html">&#x2014; Bespoke</a>
+  <a href="inlay.html">&#x2014; Inlay</a>
+  <a href="fountains.html">&#x2014; Fountains</a>
+  <a href="home-interiors.html">&#x2014; Home Interiors</a>
+  <a href="consultant.html">Consulting</a>
+  <a href="about.html">About Us</a>
+  <a href="index.html#contact">Get in Touch</a>
+</div>
 
 <div class="page">
 
@@ -184,6 +230,11 @@ nav.scrolled{height:60px;box-shadow:0 2px 30px rgba(0,0,0,0.3);}
 <script>
 var navbar = document.getElementById('navbar');
 window.addEventListener('scroll', function(){ navbar.classList.toggle('scrolled', window.scrollY > 60); });
+var hBtn = document.getElementById('hamburgerBtn');
+var nOverlay = document.getElementById('navOverlay');
+var mNav = document.getElementById('mobileNav');
+if(hBtn) hBtn.addEventListener('click', function(){ mNav.classList.toggle('open'); nOverlay.classList.toggle('open'); });
+if(nOverlay) nOverlay.addEventListener('click', function(){ mNav.classList.remove('open'); nOverlay.classList.remove('open'); });
 var observer = new IntersectionObserver(function(entries){
   entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
 }, { threshold: 0.1 });

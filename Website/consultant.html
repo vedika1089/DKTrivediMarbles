@@ -146,6 +146,14 @@ nav.scrolled{height:60px;box-shadow:0 2px 30px rgba(0,0,0,0.3);}
   .page-footer{padding:24px;flex-direction:column;gap:12px;text-align:center;}
   .photo-tag{left:0;}
 }
+
+.nav-dropdown{position:relative;}
+.nav-dropdown-menu{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:rgba(250,247,242,0.98);border:1px solid rgba(184,151,90,0.2);box-shadow:0 8px 40px rgba(0,0,0,0.12);min-width:220px;opacity:0;pointer-events:none;transition:all 0.25s ease;transform:translateX(-50%) translateY(-6px);z-index:100;}
+.nav-dropdown:hover .nav-dropdown-menu{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0);}
+.nav-dropdown-menu a{display:block;padding:10px 20px;font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:all 0.2s;border-bottom:1px solid rgba(184,151,90,0.08);}
+.nav-dropdown-menu a:last-child{border-bottom:none;}
+.nav-dropdown-menu a:hover{color:var(--gold);background:rgba(184,151,90,0.05);padding-left:26px;}
+.nav-dropdown > a::after{content:" \25BE";font-size:0.6rem;vertical-align:middle;margin-left:4px;}
 </style>
 </head>
 <body>
@@ -154,9 +162,20 @@ nav.scrolled{height:60px;box-shadow:0 2px 30px rgba(0,0,0,0.3);}
   <a href="index.html" class="nav-logo">D.K. <span>Stone</span> Crafts</a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
-    <li><a href="index.html#what-we-do">What We Do</a></li>
+    <li class="nav-dropdown"><a href="index.html#what-we-do">What We Do</a>
+      <div class="nav-dropdown-menu">
+        <a href="temples.html">Temples &amp; Shrines</a>
+        <a href="jaali.html">Jaali &amp; Screens</a>
+        <a href="tiles.html">Marble Tiles &amp; Flooring</a>
+        <a href="sculptures.html">Sculptures &amp; Statues</a>
+        <a href="pillars.html">Pillars &amp; Architecture</a>
+        <a href="bespoke.html">Custom &amp; Bespoke</a>
+        <a href="inlay.html">Inlay &amp; Pietra Dura</a>
+        <a href="fountains.html">Fountains</a>
+        <a href="home-interiors.html">Home Interiors</a>
+      </div>
+    </li>
     <li><a href="consultant.html" class="active">Consulting</a></li>
-    <li><a href="index.html#process">Our Process</a></li>
     <li><a href="about.html">About Us</a></li>
   </ul>
   <a href="#cta" class="nav-cta">Book a Consultation</a>
@@ -167,10 +186,18 @@ nav.scrolled{height:60px;box-shadow:0 2px 30px rgba(0,0,0,0.3);}
 <div class="mobile-nav" id="mobileNav">
   <a href="index.html">Home</a>
   <a href="index.html#what-we-do">What We Do</a>
-  <a href="consultant.html" class="active">Consulting</a>
-  <a href="index.html#process">Our Process</a>
+  <a href="temples.html">&#x2014; Temples &amp; Shrines</a>
+  <a href="jaali.html">&#x2014; Jaali &amp; Screens</a>
+  <a href="tiles.html">&#x2014; Marble Tiles</a>
+  <a href="sculptures.html">&#x2014; Sculptures</a>
+  <a href="pillars.html">&#x2014; Pillars</a>
+  <a href="bespoke.html">&#x2014; Bespoke</a>
+  <a href="inlay.html">&#x2014; Inlay</a>
+  <a href="fountains.html">&#x2014; Fountains</a>
+  <a href="home-interiors.html">&#x2014; Home Interiors</a>
+  <a href="consultant.html">Consulting</a>
   <a href="about.html">About Us</a>
-  <a href="#cta">Book a Consultation</a>
+  <a href="index.html#contact">Get in Touch</a>
 </div>
 
 <!-- HERO -->

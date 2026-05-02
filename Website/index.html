@@ -51,7 +51,7 @@ section{padding:var(--gap) 80px;}
 #what-we-do{background:var(--cream);padding:var(--gap) 80px 60px;}
 .expertise-intro{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:60px;}
 .craft-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
-.craft-card{position:relative;aspect-ratio:4/5;overflow:hidden;cursor:default;}
+.craft-card{position:relative;aspect-ratio:4/5;overflow:hidden;cursor:pointer;text-decoration:none;display:block;}
 .craft-bg{position:absolute;inset:0;transition:transform 0.6s ease;}
 .craft-card:hover .craft-bg{transform:scale(1.05);}
 .craft-card:hover .craft-desc{opacity:1;transform:translateY(0);}
@@ -181,6 +181,26 @@ footer{background:var(--deep);padding:56px 80px 28px;border-top:1px solid rgba(1
 .craft-see-more{text-align:center;padding:40px 0 0;}
 .craft-see-more-link{font-family:'Cinzel',serif;font-size:0.78rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:12px;border-bottom:1px solid rgba(184,151,90,0.3);padding-bottom:4px;transition:all 0.3s;}
 .craft-see-more-link:hover{color:var(--gold-light);border-color:var(--gold-light);gap:18px;}
+
+.text-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:2px;}
+.text-card{display:flex;align-items:center;gap:18px;padding:22px 28px;background:var(--charcoal);text-decoration:none;transition:all 0.3s;position:relative;overflow:hidden;}
+.text-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--gold);transform:scaleY(0);transition:transform 0.3s;}
+.text-card:hover{background:#2a2420;}
+.text-card:hover::before{transform:scaleY(1);}
+.text-card-icon{color:var(--gold);font-size:0.9rem;flex-shrink:0;}
+.text-card-title{font-family:'Cinzel',serif;font-size:0.82rem;color:var(--ivory);letter-spacing:0.06em;margin-bottom:4px;}
+.text-card-desc{font-size:0.75rem;color:rgba(245,240,232,0.45);line-height:1.6;}
+.text-card-arrow{margin-left:auto;color:var(--gold);opacity:0;transform:translateX(-6px);transition:all 0.3s;flex-shrink:0;}
+.text-card:hover .text-card-arrow{opacity:1;transform:translateX(0);}
+@media(max-width:768px){.text-cards{grid-template-columns:1fr;}}
+
+.nav-dropdown{position:relative;}
+.nav-dropdown-menu{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:rgba(250,247,242,0.98);border:1px solid rgba(184,151,90,0.2);box-shadow:0 8px 40px rgba(0,0,0,0.12);min-width:220px;opacity:0;pointer-events:none;transition:all 0.25s ease;transform:translateX(-50%) translateY(-6px);z-index:100;}
+.nav-dropdown:hover .nav-dropdown-menu{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0);}
+.nav-dropdown-menu a{display:block;padding:10px 20px;font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:all 0.2s;border-bottom:1px solid rgba(184,151,90,0.08);}
+.nav-dropdown-menu a:last-child{border-bottom:none;}
+.nav-dropdown-menu a:hover{color:var(--gold);background:rgba(184,151,90,0.05);padding-left:26px;}
+.nav-dropdown > a::after{content:" BE";font-size:0.6rem;vertical-align:middle;margin-left:4px;}
 </style>
 </head>
 <body>
@@ -189,9 +209,20 @@ footer{background:var(--deep);padding:56px 80px 28px;border-top:1px solid rgba(1
   <a href="#hero" class="nav-logo">D.K. <span>Stone</span> Crafts</a>
   <ul class="nav-links">
     <li><a href="#hero">Home</a></li>
-    <li><a href="#what-we-do">What We Do</a></li>
+    <li class="nav-dropdown"><a href="#what-we-do">What We Do</a>
+      <div class="nav-dropdown-menu">
+        <a href="temples.html">Temples &amp; Shrines</a>
+        <a href="jaali.html">Jaali &amp; Screens</a>
+        <a href="tiles.html">Marble Tiles &amp; Flooring</a>
+        <a href="sculptures.html">Sculptures &amp; Statues</a>
+        <a href="pillars.html">Pillars &amp; Architecture</a>
+        <a href="bespoke.html">Custom &amp; Bespoke</a>
+        <a href="inlay.html">Inlay &amp; Pietra Dura</a>
+        <a href="fountains.html">Fountains</a>
+        <a href="home-interiors.html">Home Interiors</a>
+      </div>
+    </li>
     <li><a href="consultant.html">Consulting</a></li>
-    <li><a href="#process">Our Process</a></li>
     <li><a href="about.html">About Us</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Get in Touch</a>
@@ -202,8 +233,16 @@ footer{background:var(--deep);padding:56px 80px 28px;border-top:1px solid rgba(1
 <div class="mobile-nav" id="mobileNav">
   <a href="#hero" onclick="closeNav()">Home</a>
   <a href="#what-we-do" onclick="closeNav()">What We Do</a>
+  <a href="temples.html">&#x2014; Temples &amp; Shrines</a>
+  <a href="jaali.html">&#x2014; Jaali &amp; Screens</a>
+  <a href="tiles.html">&#x2014; Marble Tiles</a>
+  <a href="sculptures.html">&#x2014; Sculptures</a>
+  <a href="pillars.html">&#x2014; Pillars</a>
+  <a href="bespoke.html">&#x2014; Bespoke</a>
+  <a href="inlay.html">&#x2014; Inlay</a>
+  <a href="fountains.html">&#x2014; Fountains</a>
+  <a href="home-interiors.html">&#x2014; Home Interiors</a>
   <a href="consultant.html">Consulting</a>
-  <a href="#process" onclick="closeNav()">Our Process</a>
   <a href="about.html">About Us</a>
   <a href="#contact" onclick="closeNav()">Get in Touch</a>
 </div>
@@ -230,12 +269,29 @@ footer{background:var(--deep);padding:56px 80px 28px;border-top:1px solid rgba(1
     <p style="font-size:clamp(0.8rem,1.5vw,1rem);color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Six decades of mastery — applied to every space that demands permanence, beauty, and distinction.</p>
   </div>
   <div class="craft-grid reveal">
-    <div class="craft-card"><div class="craft-bg m3"></div><div class="craft-overlay"><h3 class="craft-name">Temples &amp; Shrines</h3><p class="craft-desc">Sacred spaces crafted with devotion — marble temples and shrines built to last generations.</p></div></div>
-    <div class="craft-card"><div class="craft-bg ap3"></div><div class="craft-overlay"><h3 class="craft-name">Jaali &amp; Screens</h3><p class="craft-desc">Perforated marble screens for windows, dividers, and garden walls.</p></div></div>
-    <div class="craft-card"><div class="craft-bg m1"></div><div class="craft-overlay"><h3 class="craft-name">Marble Tiles &amp; Flooring</h3><p class="craft-desc">Precision-cut in polished, honed, and brushed finishes.</p></div></div>
-    <div class="craft-card"><div class="craft-bg m4"></div><div class="craft-overlay"><h3 class="craft-name">Sculptures &amp; Statues</h3><p class="craft-desc">Classical to abstract — custom sculptures hand-carved to your vision.</p></div></div>
-    <div class="craft-card"><div class="craft-bg ap2"></div><div class="craft-overlay"><h3 class="craft-name">Pillars &amp; Architecture</h3><p class="craft-desc">Marble columns, facades, and mouldings that define a building's character.</p></div></div>
-    <div class="craft-card"><div class="craft-bg ap4"></div><div class="craft-overlay"><h3 class="craft-name">Custom &amp; Bespoke Projects</h3><p class="craft-desc">One-of-a-kind commissions — from luxury residences to monuments.</p></div><div class="craft-tag">Bespoke</div></div>
+    <a href="temples.html" class="craft-card"><div class="craft-bg m3"></div><div class="craft-overlay"><h3 class="craft-name">Temples &amp; Shrines</h3><p class="craft-desc">Sacred spaces crafted with devotion — marble temples built to last generations.</p></div></a>
+    <a href="jaali.html" class="craft-card"><div class="craft-bg ap3"></div><div class="craft-overlay"><h3 class="craft-name">Jaali &amp; Screens</h3><p class="craft-desc">Perforated marble screens for windows, dividers, and garden walls.</p></div></a>
+    <a href="tiles.html" class="craft-card"><div class="craft-bg m1"></div><div class="craft-overlay"><h3 class="craft-name">Marble Tiles &amp; Flooring</h3><p class="craft-desc">Precision-cut in polished, honed, and brushed finishes.</p></div></a>
+    <a href="sculptures.html" class="craft-card"><div class="craft-bg m4"></div><div class="craft-overlay"><h3 class="craft-name">Sculptures &amp; Statues</h3><p class="craft-desc">Classical to abstract — custom sculptures hand-carved to your vision.</p></div></a>
+    <a href="pillars.html" class="craft-card"><div class="craft-bg ap2"></div><div class="craft-overlay"><h3 class="craft-name">Pillars &amp; Architecture</h3><p class="craft-desc">Marble columns, facades, and mouldings that define a building's character.</p></div></a>
+    <a href="bespoke.html" class="craft-card"><div class="craft-bg ap4"></div><div class="craft-overlay"><h3 class="craft-name">Custom &amp; Bespoke Projects</h3><p class="craft-desc">One-of-a-kind commissions — from luxury residences to monuments.</p></div><div class="craft-tag">Bespoke</div></a>
+  </div>
+  <div class="text-cards reveal">
+    <a href="inlay.html" class="text-card">
+      <span class="text-card-icon">&#x25C8;</span>
+      <div><div class="text-card-title">Inlay &amp; Pietra Dura</div><p class="text-card-desc">Intricate inlay using precious stones — a centuries-old Rajasthani art.</p></div>
+      <span class="text-card-arrow">&#x2192;</span>
+    </a>
+    <a href="fountains.html" class="text-card">
+      <span class="text-card-icon">&#x25C8;</span>
+      <div><div class="text-card-title">Fountains</div><p class="text-card-desc">Handcrafted marble fountains for interiors, gardens, and grand exteriors.</p></div>
+      <span class="text-card-arrow">&#x2192;</span>
+    </a>
+    <a href="home-interiors.html" class="text-card">
+      <span class="text-card-icon">&#x25C8;</span>
+      <div><div class="text-card-title">Home Interiors</div><p class="text-card-desc">Floors, walls, kitchens and bathrooms — marble for every corner.</p></div>
+      <span class="text-card-arrow">&#x2192;</span>
+    </a>
   </div>
 </section>
 
@@ -345,7 +401,19 @@ footer{background:var(--deep);padding:56px 80px 28px;border-top:1px solid rgba(1
     <div><p class="f-brand">D.K. <span>Stone</span> Crafts</p><p class="f-desc">Pioneering marble artisanship for over six decades. Transforming raw stone into enduring beauty across India and the world.</p></div>
     <div><p class="f-col-title">Navigate</p><ul class="f-links">
       <li><a href="#hero">Home</a></li>
-      <li><a href="#what-we-do">What We Do</a></li>
+      <li class="nav-dropdown"><a href="#what-we-do">What We Do</a>
+      <div class="nav-dropdown-menu">
+        <a href="temples.html">Temples &amp; Shrines</a>
+        <a href="jaali.html">Jaali &amp; Screens</a>
+        <a href="tiles.html">Marble Tiles &amp; Flooring</a>
+        <a href="sculptures.html">Sculptures &amp; Statues</a>
+        <a href="pillars.html">Pillars &amp; Architecture</a>
+        <a href="bespoke.html">Custom &amp; Bespoke</a>
+        <a href="inlay.html">Inlay &amp; Pietra Dura</a>
+        <a href="fountains.html">Fountains</a>
+        <a href="home-interiors.html">Home Interiors</a>
+      </div>
+    </li>
       <li><a href="consultant.html">Consulting</a></li>
       <li><a href="#process">Our Process</a></li>
       <li><a href="about.html">About Us</a></li>
