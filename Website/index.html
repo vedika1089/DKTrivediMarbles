@@ -389,6 +389,7 @@ footer{background:var(--deep);padding:56px 80px 28px;border-top:1px solid rgba(1
         <form id="enquiryForm" onsubmit="handleFormSubmit(event)">
           <input type="hidden" name="subject" value="New Enquiry - D.K. Stone Crafts">
           <input type="hidden" name="from_name" value="D.K. Stone Crafts Website">
+          <input type="hidden" name="access_key" value="49b54835-9fdf-4e25-a0c1-394ccb5dd7cd">
           <input type="checkbox" name="botcheck" style="display:none;">
           <div class="form-row">
             <div class="fg"><label>Your Name *</label><input type="text" name="name" placeholder="Full name" required></div>
@@ -503,7 +504,7 @@ async function handleFormSubmit(e){
   btn.textContent='Sending...'; btn.disabled=true; msg.style.display='none';
   var data={}; new FormData(form).forEach(function(v,k){ data[k]=v; });
   try{
-    var res = await fetch('/.netlify/functions/contact',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
+    var res = await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
     var result = await res.json();
     if(result.success){
       btn.textContent='Enquiry Sent'; btn.style.background='var(--gold)'; btn.style.borderColor='var(--gold)';

@@ -444,7 +444,7 @@ async function handleSubmit(e){
   btn.textContent='Sending...'; btn.disabled=true; msg.style.display='none';
   var data={}; new FormData(form).forEach(function(v,k){ data[k]=v; });
   try{
-    var res=await fetch('/.netlify/functions/contact',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
+    var res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
     var result=await res.json();
     if(result.success){
       btn.textContent='Enquiry Sent'; btn.style.background='var(--gold-light)';
