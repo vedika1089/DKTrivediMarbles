@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us – D.K. Stone Crafts</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cinzel:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ivory:#f5f0e8;--cream:#ede5d8;--warm-white:#faf7f2;--charcoal:#1c1c1c;--deep:#0e0d0b;--gold:#b8975a;--gold-light:#d4b07a;--gold-pale:#e8d5b0;--stone:#8a7d6e;--stone-light:#b0a594;--muted:#6b6258;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:var(--deep);color:var(--ivory);overflow-x:hidden;min-height:100vh;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;justify-content:center;background:rgba(14,13,11,0.93);backdrop-filter:blur(14px);border-bottom:1px solid rgba(184,151,90,0.18);transition:all 0.4s;}
+nav.scrolled{height:60px;box-shadow:0 2px 30px rgba(0,0,0,0.3);}
+.nav-logo{position:absolute;left:60px;font-family:'Cinzel',serif;font-size:1.05rem;letter-spacing:0.18em;color:var(--ivory);text-decoration:none;}
+.nav-logo span{color:var(--gold);}
+.nav-links{display:flex;gap:30px;list-style:none;align-items:center;}
+.nav-links a{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,232,0.45);text-decoration:none;transition:color 0.3s;position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--gold);transition:width 0.3s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+.nav-links a.active{color:var(--gold);}
+.nav-cta{position:absolute;right:60px;background:var(--charcoal);color:var(--ivory);padding:9px 24px;font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;font-family:'Jost',sans-serif;transition:background 0.3s;}
+.nav-cta:hover{background:var(--gold);}
+
+/* PAGE WRAPPER */
+.page{padding-top:72px;}
+
+/* STORY SECTION */
+.story-section{padding:90px 80px 80px;max-width:860px;}
+.section-label{font-size:0.65rem;letter-spacing:0.42em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:block;}
+.story-heading{font-family:'Cinzel',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:400;color:var(--ivory);line-height:1.15;margin-bottom:32px;}
+.story-body{font-family:'Cormorant Garamond',serif;font-size:1.18rem;line-height:2.05;color:rgba(245,240,232,0.68);margin-bottom:26px;}
+.story-body:first-of-type{font-size:1.32rem;color:rgba(245,240,232,0.85);}
+.story-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.4rem,2.5vw,2rem);color:var(--gold-light);margin:52px 0;line-height:1.5;border-left:2px solid var(--gold);padding-left:32px;}
+
+/* DIVIDER */
+.section-break{display:flex;align-items:center;gap:24px;padding:0 80px;margin:20px 0;}
+.section-break-line{flex:1;height:1px;background:linear-gradient(to right,rgba(184,151,90,0.3),transparent);}
+.section-break-line.right{background:linear-gradient(to left,rgba(184,151,90,0.3),transparent);}
+.section-break-diamond{color:var(--gold);font-size:0.5rem;}
+
+/* LEGACY SECTION */
+.legacy-section{padding:80px 80px 90px;background:rgba(184,151,90,0.03);}
+.legacy-intro{font-family:'Cormorant Garamond',serif;font-size:1.18rem;line-height:1.95;color:rgba(245,240,232,0.65);max-width:680px;margin-bottom:64px;}
+.legacy-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-bottom:2px;}
+.legacy-card{padding:32px 30px;border:1px solid rgba(184,151,90,0.1);background:rgba(255,255,255,0.01);transition:all 0.4s;position:relative;overflow:hidden;}
+.legacy-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--gold),transparent);transform:scaleY(0);transform-origin:top;transition:transform 0.5s ease;}
+.legacy-card:hover{border-color:rgba(184,151,90,0.25);background:rgba(184,151,90,0.04);}
+.legacy-card:hover::before{transform:scaleY(1);}
+.legacy-num{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.35em;color:rgba(184,151,90,0.5);margin-bottom:12px;display:block;}
+.legacy-icon{font-size:1.3rem;color:var(--gold);margin-bottom:10px;display:block;}
+.legacy-title{font-family:'Cinzel',serif;font-size:0.85rem;color:var(--ivory);margin-bottom:8px;letter-spacing:0.08em;}
+.legacy-text{font-size:0.8rem;color:rgba(245,240,232,0.48);line-height:1.75;}
+.legacy-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:2px;}
+.legacy-stat{padding:44px 40px;background:rgba(255,255,255,0.02);border:1px solid rgba(184,151,90,0.08);text-align:center;transition:background 0.3s;}
+.legacy-stat:hover{background:rgba(184,151,90,0.05);}
+.stat-num{font-family:'Cinzel',serif;font-size:2.2rem;color:var(--gold);display:block;line-height:1;margin-bottom:10px;}
+.stat-label{font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(245,240,232,0.3);}
+
+/* CTA SECTION */
+.cta-section{padding:90px 80px;text-align:center;border-top:1px solid rgba(184,151,90,0.12);position:relative;overflow:hidden;}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(184,151,90,0.07) 0%,transparent 65%);}
+.cta-eyebrow{font-size:0.65rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:block;}
+.cta-heading{font-family:'Cinzel',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:400;color:var(--ivory);margin-bottom:16px;}
+.cta-sub{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(245,240,232,0.5);margin-bottom:44px;line-height:1.8;}
+.btn-cta{display:inline-block;background:var(--gold);color:var(--ivory);padding:16px 52px;font-family:'Jost',sans-serif;font-size:0.75rem;letter-spacing:0.28em;text-transform:uppercase;text-decoration:none;transition:all 0.3s;}
+.btn-cta:hover{background:var(--gold-light);}
+
+/* FOOTER */
+.page-footer{padding:28px 80px;border-top:1px solid rgba(184,151,90,0.1);display:flex;justify-content:space-between;align-items:center;}
+.footer-copy{font-size:0.7rem;color:rgba(245,240,232,0.2);}
+.footer-home{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,240,232,0.25);text-decoration:none;transition:color 0.3s;font-family:'Jost',sans-serif;}
+.footer-home:hover{color:var(--gold);}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--deep);}::-webkit-scrollbar-thumb{background:rgba(184,151,90,0.3);border-radius:3px;}::-webkit-scrollbar-thumb:hover{background:var(--gold);}
+
+@media(max-width:768px){
+  .nav-logo{left:20px;}.nav-links{display:none;}.nav-cta{display:none;}
+  .story-section,.legacy-section,.cta-section{padding:60px 24px;}
+  .section-break{padding:0 24px;}
+  .legacy-grid{grid-template-columns:1fr;}
+  .legacy-card{padding:36px 28px;}
+  .legacy-stats{grid-template-columns:1fr;}
+  .legacy-stat{padding:28px 24px;}
+  .page-footer{padding:24px;flex-direction:column;gap:12px;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">D.K. <span>Stone</span> Crafts</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#what-we-do">What We Do</a></li>
+    <li><a href="index.html#consultant">Consulting</a></li>
+    <li><a href="index.html#process">Our Process</a></li>
+    <li><a href="about.html" class="active">About Us</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta">Get in Touch</a>
+</nav>
+
+<div class="page">
+
+  <!-- OUR STORY -->
+  <div class="story-section">
+    <span class="section-label reveal">Who We Are</span>
+    <h1 class="story-heading reveal">Our Story</h1>
+    <p class="story-body reveal">Welcome to D.K. Stone Crafts, where timeless beauty and exquisite artistry merge seamlessly. With a legacy spanning over six decades, we have proudly served as pioneers in the marble industry.</p>
+    <p class="story-body reveal">Since our inception, we have honed our skills and refined our techniques to become synonymous with unparalleled quality and craftsmanship. Our rich heritage is built upon the foundations of tradition, innovation, and an unwavering pursuit of perfection.</p>
+    <p class="story-body reveal">We have had the privilege of working on prestigious projects both nationally and internationally. Our artisans have transformed raw blocks of marble into stunning works of art that adorn homes, offices, and public spaces — leaving a lasting impression on all who behold them.</p>
+    <p class="story-body reveal">At D.K. Stone Crafts, we understand that marble is not merely a material. It is a timeless symbol of elegance and sophistication — and we are here to help you harness it.</p>
+    <blockquote class="story-quote reveal">&ldquo;Where tradition meets innovation, and craftsmanship meets creativity.&rdquo;</blockquote>
+  </div>
+
+  <!-- VISUAL BREAK -->
+  <div class="section-break reveal">
+    <div class="section-break-line"></div>
+    <span class="section-break-diamond">&#x25C6;</span>
+    <div class="section-break-line right"></div>
+  </div>
+
+  <!-- OUR LEGACY -->
+  <div class="legacy-section">
+    <span class="section-label reveal">Our Legacy</span>
+    <h2 class="story-heading reveal" style="font-size:clamp(1.6rem,3vw,2.4rem);">What We Stand For</h2>
+    <p class="legacy-intro reveal">Our legacy is not measured in years alone — it is measured in every chisel stroke, every polished surface, and every space that bears the mark of our craftsmanship.</p>
+
+    <div class="legacy-grid">
+      <div class="legacy-card reveal">
+        <span class="legacy-num">01</span>
+        <span class="legacy-icon">&#x2B21;</span>
+        <div class="legacy-title">Heritage</div>
+        <p class="legacy-text">Rooted in tradition, our craft has been refined across generations of dedicated artisans. Every technique we use carries the weight of decades of perfection.</p>
+      </div>
+      <div class="legacy-card reveal">
+        <span class="legacy-num">02</span>
+        <span class="legacy-icon">&#x25C8;</span>
+        <div class="legacy-title">Excellence</div>
+        <p class="legacy-text">Every piece that leaves our workshop meets the highest standards of quality and finish. We do not compromise — not on material, not on craft, not on delivery.</p>
+      </div>
+      <div class="legacy-card reveal">
+        <span class="legacy-num">03</span>
+        <span class="legacy-icon">&#x25C7;</span>
+        <div class="legacy-title">Innovation</div>
+        <p class="legacy-text">Classic artisanship continuously enhanced by modern design sensibilities and techniques. We honour tradition while embracing the demands of contemporary design.</p>
+      </div>
+      <div class="legacy-card reveal">
+        <span class="legacy-num">04</span>
+        <span class="legacy-icon">&#x2726;</span>
+        <div class="legacy-title">Vision</div>
+        <p class="legacy-text">We bring your unique creative vision to life in stone — for clients across India and internationally. Every project begins with listening.</p>
+      </div>
+    </div>
+
+    <div class="legacy-stats">
+      <div class="legacy-stat reveal"><span class="stat-num">60+</span><span class="stat-label">Years of Craft</span></div>
+      <div class="legacy-stat reveal"><span class="stat-num">National &amp; International</span><span class="stat-label" style="font-size:0.6rem;">Project Reach</span></div>
+      <div class="legacy-stat reveal"><span class="stat-num" style="font-size:1.4rem;">Rajasthan</span><span class="stat-label">Rooted In</span></div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section reveal">
+    <span class="cta-eyebrow">Ready to Begin?</span>
+    <h2 class="cta-heading">Let's Create Something Lasting</h2>
+    <p class="cta-sub">Whether you have a project in mind or simply want to explore what's possible — we'd love to hear from you.</p>
+    <a href="index.html#contact" class="btn-cta">Get in Touch</a>
+  </div>
+
+</div>
+
+<footer class="page-footer">
+  <span class="footer-copy">© 2025 D.K. Stone Crafts. All rights reserved.</span>
+  <a href="index.html" class="footer-home">← Back to Home</a>
+</footer>
+
+<script>
+var navbar = document.getElementById('navbar');
+window.addEventListener('scroll', function(){ navbar.classList.toggle('scrolled', window.scrollY > 60); });
+var observer = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
+</script>
+</body>
+</html>
